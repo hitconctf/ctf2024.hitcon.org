@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="twitter:card" content="summary" />
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="flag" content="hitcon{HITCON-verse let's gooooooo}">
+
+  <meta property="og:title" content="HITCON CTF 2024" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ctf2024.hitcon.org" />
+  <meta property="og:image" content="http://ctf.hitcon.org/img/og_img.png" />
+  <meta property="og:site_name" content="HITCON CTF 2024" />
+  <meta property="og:description" content="Online Jeopardy, Jul 12-14 2024" />
+  <title>HITCON CTF 2024</title>
+
+  <link rel="shortcut icon" type="image/png" href="/static/img/hitcon-ctf_monotone.png" />
+  <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+
+<body>
+  <nav id="top-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">HITCON CTF 2024</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/dashboard/">Dashboard</a></li>
+          <li><a href="/dashboard/scoreboard">Scoreboard</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li>
+            <p id="timer" class="navbar-text"></p>
+            <input type="hidden" id="contest_start_time" value="1720792800.0">
+            <input type="hidden" id="contest_end_time" value="1720965600.0">
+            <input type="hidden" id="current_time" value="1720975389.7256598">
+          </li>
+        </ul>
+      </div>
+  </nav>
+
+  <div id="content" class="container">
+    <div id="contest-info">
+      <div class="col-lg-6">
+        <h2>競賽說明</h2>
+        <h3>預賽</h3>
+        <ul>
+          <li>競賽為 48 小時的線上 Jeopardy 形式 CTF</li>
+          <li>競賽採取積分累計制，依分數高低進行排名<br>
+            同分者，依最後一次正確提交的時間判定</li>
+          <li>每道題目的分數將會根據解題隊伍數即時進行動態調整</li>
+          <li>Flag 形式為: <code>hitcon{printable ascii+}</code></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <h2>Contest Information</h2>
+        <h3>Quals</h3>
+        <ul>
+          <li>This is an online jeopardy style CTF last for 48 hours.</li>
+          <li>Teams earn points from solving challenges, and are ranked by their total points.<br>If two teams get a
+            same score, their rank is decided by who has an earlier latest correct submission.</li>
+          <li>The points of each challenge will be dynamically adjusted based on how many teams have solved it.</li>
+          <li>Flag format: <code>hitcon{printable ascii+}</code></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+
+        <h3>決賽</h3>
+        總共 12 支隊伍將參加 11 月 9 - 10 號於台北舉行的 HITCON CTF Final (現場 Attack & Defense，每隊 4 人)，晉級規則如下：
+        <ul>
+          <li>預賽前九名的隊伍</li>
+          <li>預賽第一名的台灣隊伍，相關限制如下</li>
+          <ul>
+            <li>決賽現場至少需有 2 位隊員出席，並且現場出席隊員須具備中華民國國籍或永久居留證</li>
+            <li>初賽註冊隊伍時須將國家設成 Taiwan</li>
+            <li>不提供台灣隊伍機票補助</li>
+          </ul>
+          <li>一支由 <a href="https://ais3.org/">AIS3</a> 推薦的隊伍</li>
+          <li>Balsn CTF 2024 冠軍隊伍</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <h3>Final</h3>
+        A total of 12 teams will be invited to HITCON CTF Final on Nov 9-10. (Onsite Attack &amp; Defense in Taipei, 4
+        players / team) The following teams will be invited.
+        <ul>
+          <li>Top 9 teams in the qualification</li>
+          <li>Top 1 Taiwanese team (See limitations below)</li>
+          <ul>
+            <li>At least 2 members must be present onsite at the finals, and each of those attending must be either a
+              citizen or permanent resident of the R.O.C (Taiwan).</li>
+            <li>Must set the country to Taiwan when they register for the qualification.</li>
+            <li>Flight reimbursement is not provided for Taiwanese teams.</li>
+          </ul>
+          <li>A team recommended by <a href="https://ais3.org/">AIS3</a> program.</li>
+          <li>Champions of Balsn CTF 2024</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <h2>競賽時間</h2>
+        <ul>
+          <li>
+            07/12(五) 22:00 ~ 07/14(日) 22:00 (UTC+8, 48 小時)
+            <a href="https://ctftime.org/event/2345"><img alt="CTFtime" src="https://ctftime.org/favicon.png"></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <h2>Contest Time</h2>
+        <ul>
+          <li>
+            Jul. 12 14:00 ~ Jul. 14 14:00 (UTC, 48 hours)
+            <a href="https://ctftime.org/event/2345"><img alt="CTFtime" src="https://ctftime.org/favicon.png"></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <h2>決賽獎金</h2>
+        <ul>
+          <li>第一名獎金: $10,000 USD</li>
+          <li>第二名獎金: $5,000 USD</li>
+          <li>第三名獎金: $2,000 USD</li>
+          <li>臺灣之星特殊獎: $1,000 USD </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <h2>Awards in Final</h2>
+        <ul>
+          <li>1st place: $10,000 USD</li>
+          <li>2nd place: $5,000 USD</li>
+          <li>3rd place: $2,000 USD</li>
+          <li>Special award for Taiwan teams: $1,000 USD</li>
+        </ul>
+
+      </div>
+
+      <div class="col-lg-6">
+        <h2>比賽注意事項</h2>
+        <ul>
+          <li>競賽期間，做出以下違規事項者將直接取消資格:</li>
+          <ul>
+            <li>進行任何破壞競賽公平公正原則之行為</li>
+            <li>散播、與其它隊伍交換解法或 Flag</li>
+            <li>除競賽中提供的題目外，對競賽系統、參賽者及其它人員進行攻擊</li>
+          </ul>
+          <li>每位參賽者最多僅能參與一個隊伍</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <h2>Contest Rules</h2>
+        <ul>
+          <li>During the contest, any of the following behaviors will lead to disqualification:</li>
+          <ul>
+            <li>Any behavior that compromises the fairness of contest</li>
+            <li>Publishing, exchanging challenge solutions or Flags</li>
+            <li>Attacking any personnel, including participants and non-participants, or the contest system itself</li>
+          </ul>
+          <li>Each player can only join one team.</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <h2>保留權利</h2>
+        <p>主辦單位可依狀況調整競賽的內容、流程及規則。</p>
+      </div>
+      <div class="col-lg-6">
+        <h2>Rights Reserved</h2>
+        <p>Organizers may rearrange/modify contest challenges, proceedings, and rules.</p>
+      </div>
+
+      <div class="col-lg-6">
+        <h2>Advisor</h2>
+        <p class="col-lg-12" style="height: 100px">
+          <a href="https://moda.gov.tw/ADI/"><img class="col-lg-6 col-xs-6"
+              style="/*padding-top: 10px;*/ position: absolute; top: 50%; transform: translateY(-50%);"
+              src="/static/img/ADI-White.png" title="Administration for Digital Industries, moda"></a>
+        </p>
+      </div>
+
+      <div class="col-lg-6">
+        <h2>Organizers</h2>
+        <p class="col-lg-12" style="height: 100px">
+          <a href="http://hacker.org.tw/"><img class="col-lg-6 col-xs-6"
+              style="position: absolute; top: 50%; transform: translateY(-50%);" src="/static/img/hit_logo_white2.png"
+              title="Hacks in Taiwan Association"></a>
+          <a href="https://www.itri.org.tw/"><img class="col-lg-6 col-xs-6"
+              style="position: absolute; top: 50%; left: 50%; transform: translateY(-50%);"
+              src="https://ctf.hitcon.org/img/itri.png" title="Industrial Technology Research Institute"></a>
+        </p>
+      </div>
+
+      <div class="col-lg-6">
+        <h2>Partner</h2>
+        <p class="col-lg-12" style="height: 100px">
+          <a href="https://defihacklabs.io/"><img class="col-lg-6 col-xs-6"
+              style="/*padding-top: 10px;*/ position: absolute; top: 50%; transform: translate(-10%,-50%); width: 75%"
+              src="/static/img/defihacklabs.png" title="DeFiHackLabs"></a>
+        </p>
+      </div>
+
+    </div><!-- #contest-info -->
+
+  </div>
+
+  <form id="logoutform" method="post" action="/team/logout">
+    <input type="hidden" name="csrfmiddlewaretoken"
+      value="dQ9dAIuqrVs20FsbNW63NxYeTxBS3JKbaxaSsZtn7JwBdjXhG1fqlbdiocAsHTTv">
+  </form>
+  <hr>
+  <footer id="footer">
+    <h4 class="text-muted">&copy; HITCON CTF Team 2024</h4>
+    <p class="text-muted">Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+        data-cfemail="adced9cb9f9d9f99edc5c4d9cec2c383c2dfca">[email&#160;protected]</a></p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/markdown-it.min.js"></script>
+  <script src="/static/js/moment.min.js"></script>
+  <script src="/static/js/main.js"></script>
+  <script>
+    var refresh_interval = 30 * 1000;
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    var team_id = 0;
+
+
+    var current_time = 1720975389.7256598;
+    var contest_end_time = 1720965600.0;
+    var contest_end = current_time >= contest_end_time;
+    document.getElementById("navlogout").onclick = function () {
+      document.getElementById("logoutform").submit();
+    }
+  </script>
+
+
+  <script src="/static/js/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', "/static/js/particles.json", function () { });
+  </script>
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNLJNVWZZY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QNLJNVWZZY');
+  </script>
+
+</body>
+
+</html>
