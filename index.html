@@ -40,16 +40,40 @@
     .finalist-logo {
       width: 100%;
       height: auto;
+      aspect-ratio: 1 / 1;
       background-color: white;
       padding: 0.5em;
       border-radius: 1em;
       cursor: pointer;
+      position: relative;
     }
 
-    .finalist-logo>img {
+    .finalist-logo img {
       height: auto;
       width: 100%;
       border-radius: 0.5em;
+    }
+
+    .finalist-logo-mask {
+      background: linear-gradient(0deg, rgba(0, 0, 0, .6) 0, transparent);
+      height: 33.3%;
+      width: 100%;
+      transform: translateX(-0.5em);
+      position: absolute;
+      bottom: 0;
+      top: auto;
+      border-radius: 1em;
+    }
+
+    .finalist-logo-name {
+      bottom: 0.25em;
+      text-align: center;
+      width: 100%;
+      margin: 0;
+      text-shadow: none;
+      color: #fff;
+      position: absolute;
+      transform: translateX(-0.25em);
     }
 
     .sponsor-logo-container {
@@ -227,44 +251,70 @@
     <div>
       <h2>Finalists</h2>
 
-      <div class="finalist-logo-container">
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('Blue Water')" src="/static/img/team-logos/blue_water.png" />
-        </div>
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('Cold Fusion')" src="/static/img/team-logos/cold_fusion.png">
-        </div>
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('Friendly Maltese Citizens')" src="/static/img/team-logos/fmc.png">
-        </div>
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('Maple Mallard Magistrates')" src="/static/img/team-logos/mmm.png">
-        </div>
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('RePokemonedCollections')"
-            src="/static/img/team-logos/RePokemonedCollections.jpg">
-        </div>
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('SuperDiceCode')" src="/static/img/team-logos/sdc.png">
-        </div>
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('Starburst Beef Stir-Fried BambooFox')"
-            src="/static/img/team-logos/c8763.png">
-        </div>
-        <div onclick="openTeamIntroduction('Superflat')" class="finalist-logo">
-          <img src="/static/img/team-logos/superflat.png">
-        </div>
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('TokyoWesterns')" src="/static/img/team-logos/tokyowesterns.png">
-        </div>
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('Defunqt')" src="/static/img/team-logos/defunqt.jpeg">
-        </div>
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('thehackerscrew')" src="/static/img/team-logos/thc.png">
-        </div>
-        <div class="finalist-logo">
-          <img onclick="openTeamIntroduction('YAATN')" src="/static/img/team-logos/YAATN.png">
+      <div style="display: block;">
+        <div class="finalist-logo-container">
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('Blue Water')" src="/static/img/team-logos/blue_water.png" />
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">Blue Water</h3>
+          </div>
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('Cold Fusion')" src="/static/img/team-logos/cold_fusion.png">
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">Cold Fusion</h3>
+          </div>
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('Friendly Maltese Citizens')" src="/static/img/team-logos/fmc.png">
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">Friendly Maltese Citizens</h3>
+          </div>
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('Maple Mallard Magistrates')" src="/static/img/team-logos/mmm.png">
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">Maple Mallard Magistrates</h3>
+          </div>
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('RePokemonedCollections')"
+              src="/static/img/team-logos/RePokemonedCollections.jpg">
+            <div class="finalist-logo-mask"></div>
+            <h4 class="finalist-logo-name">RePokemonedCollections</h4>
+          </div>
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('SuperDiceCode')" src="/static/img/team-logos/sdc.png">
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">SuperDiceCode</h3>
+          </div>
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('Starburst Beef Stir-Fried BambooFox')"
+              src="/static/img/team-logos/c8763.png">
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">Starburst Beef Stir-Fried BambooFox</h3>
+          </div>
+          <div onclick="openTeamIntroduction('Superflat')" class="finalist-logo">
+            <img src="/static/img/team-logos/superflat.png">
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">Superflat</h3>
+          </div>
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('TokyoWesterns')" src="/static/img/team-logos/tokyowesterns.png">
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">TokyoWesterns</h3>
+          </div>
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('Defunqt')" src="/static/img/team-logos/defunqt.jpeg">
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">Defunqt</h3>
+          </div>
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('thehackerscrew')" src="/static/img/team-logos/thc.png">
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">thehackerscrew</h3>
+          </div>
+          <div class="finalist-logo">
+            <img onclick="openTeamIntroduction('YAATN')" src="/static/img/team-logos/YAATN.png">
+            <div class="finalist-logo-mask"></div>
+            <h3 class="finalist-logo-name">YAATN</h3>
+          </div>
         </div>
       </div>
     </div>
