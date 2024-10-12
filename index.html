@@ -25,6 +25,18 @@
   <link rel="stylesheet" href="/static/css/main.css">
 
   <style>
+    .finalist-logo-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2em;
+    }
+
+    @media (min-width: 1200px) {
+      .finalist-logo-container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
     .finalist-logo {
       width: 100%;
       height: auto;
@@ -177,7 +189,7 @@
     <div>
       <h2>Finalists</h2>
 
-      <div style="display: grid; grid-template-columns: repeat(4, minmax(200px, 1fr)); gap: 2em;">
+      <div class="finalist-logo-container">
         <div class="finalist-logo">
           <img src="/static/img/team-logos/blue_water.png" />
         </div>
@@ -226,7 +238,8 @@
         <h3>Diamond</h3>
         <div class="sponsor-row">
           <div class="sponsor-logo-container col-lg-3 col-xs-6">
-            <a href="https://ase.aseglobal.com/ch/" target="_blank"><img src="/static/img/sponsor-logos/ASE-White.png" class="col-lg-12 col-xs-12" alt="ASE" /></a>
+            <a href="https://ase.aseglobal.com/ch/" target="_blank"><img src="/static/img/sponsor-logos/ASE-White.png"
+                class="col-lg-12 col-xs-12" alt="ASE" /></a>
           </div>
           <div class="col-lg-9 col-xs-6"></div>
         </div>
@@ -235,10 +248,12 @@
         <h3>Gold</h3>
         <div class="sponsor-row">
           <div class="sponsor-logo-container col-lg-3 col-xs-6">
-            <a href="https://www.kkco.com.tw/" target="_blank"><img src="/static/img/sponsor-logos/KlickKlack-White.png" alt="kk" /></a>
+            <a href="https://www.kkco.com.tw/" target="_blank"><img src="/static/img/sponsor-logos/KlickKlack-White.png"
+                alt="kk" /></a>
           </div>
           <div class="sponsor-logo-container col-lg-3 col-xs-6">
-            <a href="https://www.panasonic.com/tw/" target="_blank"><img src="/static/img/sponsor-logos/Panasonic-White.png" alt="panasonic" /></a>
+            <a href="https://www.panasonic.com/tw/" target="_blank"><img
+                src="/static/img/sponsor-logos/Panasonic-White.png" alt="panasonic" /></a>
           </div>
           <div class="col-lg-6"></div>
         </div>
@@ -248,7 +263,8 @@
         <h3>Sliver</h3>
         <div class="sponsor-row">
           <div class="sponsor-logo-container col-lg-3 col-xs-6">
-            <a href="https://corp.104.com.tw/zh/home/" target="_blank"><img src="/static/img/sponsor-logos/104-White.png" alt="104" /></a>
+            <a href="https://corp.104.com.tw/zh/home/" target="_blank"><img
+                src="/static/img/sponsor-logos/104-White.png" alt="104" /></a>
           </div>
           <div class="col-lg-9 col-xs-6"></div>
         </div>
