@@ -28,7 +28,7 @@
     .finalist-logo-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2em;
+      gap: 0.5em;
     }
 
     @media (min-width: 1200px) {
@@ -43,11 +43,13 @@
       background-color: white;
       padding: 0.5em;
       border-radius: 1em;
+      cursor: pointer;
     }
 
     .finalist-logo>img {
       height: auto;
       width: 100%;
+      border-radius: 0.5em;
     }
 
     .sponsor-logo-container {
@@ -97,6 +99,29 @@
       max-height: 100%;
       object-fit: contain;
     }
+
+    .modal-background {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 105vw;
+      height: 105vh;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .no-scroll {
+      overflow-y: hidden;
+    }
+
+    #team-intro {
+      line-height: 1.6em;
+    }
   </style>
 </head>
 
@@ -139,6 +164,19 @@
 
   <div id="particles-js">
   </div>
+
+  <dialog id="team-intro" style="max-width: 500px; overflow: hidden;">
+    <form method="dialog"
+      style="display: flex; justify-content: space-between; margin-bottom: 0.5em; font-family: 'Aldrich', sans-serif;">
+      <h3 id="team-intro-title" style="text-shadow: none;">Team name</h3>
+      <button onclick="closeTeamIntroduction()" class="btn btn-link">X</button>
+    </form>
+    <div class="modal-background"></div>
+    <div class="finalist-logo" style="cursor: default;">
+      <img src="#" alt="team logo">
+    </div>
+    <p id="team-intro-description" style="margin: 1em; height: 10em; overflow: scroll;">Team introduction</p>
+  </dialog>
 
   <div id="home-masthead">
     <div class="container">
@@ -191,40 +229,42 @@
 
       <div class="finalist-logo-container">
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/blue_water.png" />
+          <img onclick="openTeamIntroduction('Blue Water')" src="/static/img/team-logos/blue_water.png" />
         </div>
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/cold_fusion.png">
+          <img onclick="openTeamIntroduction('Cold Fusion')" src="/static/img/team-logos/cold_fusion.png">
         </div>
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/fmc.png">
+          <img onclick="openTeamIntroduction('Friendly Maltese Citizens')" src="/static/img/team-logos/fmc.png">
         </div>
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/mmm.png">
+          <img onclick="openTeamIntroduction('Maple Mallard Magistrates')" src="/static/img/team-logos/mmm.png">
         </div>
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/RePokemonedCollections.jpg">
+          <img onclick="openTeamIntroduction('RePokemonedCollections')"
+            src="/static/img/team-logos/RePokemonedCollections.jpg">
         </div>
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/sdc.png">
+          <img onclick="openTeamIntroduction('SuperDiceCode')" src="/static/img/team-logos/sdc.png">
         </div>
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/c8763.png">
+          <img onclick="openTeamIntroduction('Starburst Beef Stir-Fried BambooFox')"
+            src="/static/img/team-logos/c8763.png">
         </div>
-        <div class="finalist-logo">
+        <div onclick="openTeamIntroduction('Superflat')" class="finalist-logo">
           <img src="/static/img/team-logos/superflat.png">
         </div>
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/tokyowesterns.png">
+          <img onclick="openTeamIntroduction('TokyoWesterns')" src="/static/img/team-logos/tokyowesterns.png">
         </div>
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/defunqt.jpeg">
+          <img onclick="openTeamIntroduction('Defunqt')" src="/static/img/team-logos/defunqt.jpeg">
         </div>
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/thc.png">
+          <img onclick="openTeamIntroduction('thehackerscrew')" src="/static/img/team-logos/thc.png">
         </div>
         <div class="finalist-logo">
-          <img src="/static/img/team-logos/YAATN.png">
+          <img onclick="openTeamIntroduction('YAATN')" src="/static/img/team-logos/YAATN.png">
         </div>
       </div>
     </div>
@@ -328,6 +368,82 @@
     var contest_end = current_time >= contest_end_time;
     document.getElementById("navlogout").onclick = function () {
       document.getElementById("logoutform").submit();
+    }
+
+    function openTeamIntroduction(teamName) {
+      const teamInfo = {
+        "Maple Mallard Magistrates": {
+          url: "/static/img/team-logos/mmm.png",
+          description: `Maple Mallard Magistrates (MMM) is an international CTF team. The team was formed in 2022 as a collaboration between the Plaid Parliament of Pwning (Carnegie Mellon University, USA), The Duck (Theori, Korea), and Maple Bacon (University of British Columbia, Canada). MMM has participated in various CTF competitions, including Google CTF/Hackceler8, SECCON CTF, HITCON CTF, and DEFCON CTF.`,
+        },
+        Superflat: {
+          url: "/static/img/team-logos/superflat.png",
+          description: `Superflat is a new CTF team from the Netherlands, founded by players from the Dutch ECSC team. It's the result of a merger between several Dutch teams, combining forces to compete in big CTFs and to grow the Dutch CTF community.`,
+        },
+        RePokemonedCollections: {
+          url: "/static/img/team-logos/RePokemonedCollections.jpg",
+          description: `We are players which love the journey of Pokémon in the digital world, let’s start our adventure in the digital ocean.`,
+        },
+        thehackerscrew: {
+          url: "/static/img/team-logos/thc.png",
+          description: `The hackers that screw`,
+        },
+        "Friendly Maltese Citizens": {
+          url: "/static/img/team-logos/fmc.png",
+          description: `Friendly Maltese Citizens (commonly known as The Merger) consists of teams Project Sekai, idek, ARESx, Emu Exploit, SEE, Arr3stY0u, and DeadSec with the goal of qualifying for DEFCON. Additionally, the team is known for having members from team mvm, the winner of Hack Fortress @ DEFCON 32.`,
+        },
+        YAATN: {
+          url: "/static/img/team-logos/YAATN.png",
+          description: `YAATN Ain't A Team Name (YAATN) is a group of friends united by their love for creativity, problem-solving, and competition. Rejecting traditional labels, they embraced a quirky, ironic name to reflect their nonconformist attitude. Though unconventional, their focus was always on results, approaching each challenge with a laid-back yet fiercely capable mindset. Over time, their unpredictable strategies and strong camaraderie set them apart, earning respect and a growing reputation. YAATN became more than just a group — it became a mindset that rejected convention and celebrated individuality, proving that success isn’t defined by a name but by the work.`,
+        },
+        Defunqt: {
+          url: "/static/img/team-logos/defunqt.jpeg",
+          description: `A team of formerly retired CTF players looking to make a comeback`,
+        },
+        "Cold Fusion": {
+          url: "/static/img/team-logos/cold_fusion.png",
+          description: `The Cold Fusion Team is a union comprised of Korean people.`,
+        },
+        SuperDiceCode: {
+          url: "/static/img/team-logos/sdc.png",
+          description: `SuperDiceCode is the combination of SuperGuesser, DiceGang, and CodeRed.`,
+        },
+        TokyoWesterns: {
+          url: "/static/img/team-logos/tokyowesterns.png",
+          description: `TokyoWesterns is a Japanese CTF team playing CTFs intermittently. Originally our team was formed at the end of 2014 with some students of a university located on the western side of Tokyo but not limited so far, and we are welcoming more members.
+Most of the members were students when we were playing CTFs actively in 2015-2019 though, the situation that they have less time to participate after getting jobs and COVID-19 not allowing travel for on-site finals made us inactive.
+Recently some CTFs are back to normal operation with on-site finals. It is a good time for us to be active again.
+
+Recent CTF results:
+- MidnightSun CTF 2024 Finals 1st place`,
+        },
+        "Blue Water": {
+          url: "/static/img/team-logos/blue_water.png",
+          description: `Blue Water is a collaboration team between perfect blue and Water Paddler. It was established shortly after DEFCON 2022, with the goal to win first place on big CTF competitions. The team won second place on DEFCON CTF 2024 and is the second time in HITCON Finals.
+
+perfect blue started out as a close group of friends who met at csaw in 2017. A number of ex-dcua folks then joined in late 2019, with a few other members trickling in from other teams. pb became one of the top teams starting in 2019-2020.
+(for more introduction, please summarize from https://blog.perfect.blue/perfect-blue-finishes-top-1-on-CTFtime-2020)
+
+Water Paddler is founded by a member from Tea Deliverers and a member from shellphish in late 2021. The team recruited openly by interview, and quickly gained talents from all around the world.`
+        },
+        "Starburst Beef Stir-Fried BambooFox": {
+          url: "/static/img/team-logos/c8763.png",
+          description: `"Starburst Beef Stir-Fried BambooFox" combines three teams: "Starburst Kiwawa," "B33F 50UP," and "BambooFox," known for their starbursts, beef soup-making, and fox cosplay. With their respective top-tier skills, they represent a new generation of cybersecurity teams in Taiwan.`,
+        }
+      }
+
+      const { url, description } = teamInfo[teamName]
+
+      // see: https://stackoverflow.com/questions/9538868/prevent-body-from-scrolling-when-a-modal-is-opened
+      document.querySelector("body").classList.add("no-scroll")
+      document.querySelector("#team-intro-title").innerHTML = teamName
+      document.querySelector("#team-intro img").src = url
+      document.querySelector("#team-intro-description").innerHTML = description
+      document.querySelector("#team-intro").showModal()
+    }
+
+    function closeTeamIntroduction() {
+      document.querySelector("body").classList.remove("no-scroll")
     }
   </script>
 
