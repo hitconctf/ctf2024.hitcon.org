@@ -42,7 +42,6 @@
       height: auto;
       aspect-ratio: 1 / 1;
       background-color: white;
-      padding: 0.5em;
       border-radius: 1em;
       cursor: pointer;
       position: relative;
@@ -51,14 +50,14 @@
     .finalist-logo img {
       height: auto;
       width: 100%;
-      border-radius: 0.5em;
+      border-radius: 1em;
     }
 
     .finalist-logo-mask {
       background: linear-gradient(0deg, rgba(0, 0, 0, .6) 0, transparent);
       height: 33.3%;
       width: 100%;
-      transform: translateX(-0.5em);
+      /* transform: translateX(-0.5em); */
       position: absolute;
       bottom: 0;
       top: auto;
@@ -71,9 +70,8 @@
       width: 100%;
       margin: 0;
       text-shadow: none;
-      color: #fff;
+      color: #eee;
       position: absolute;
-      transform: translateX(-0.25em);
     }
 
     .sponsor-logo-container {
@@ -145,6 +143,19 @@
 
     #team-intro {
       line-height: 1.6em;
+      background-color: #222;
+      color: #eee;
+      max-width: 700px;
+      overflow: hidden;
+      border-radius: 1em;
+      padding: 2em;
+    }
+
+    @media (min-width: 768px) {
+      .team-intro-body {
+        display: flex;
+        height: 300px;
+      }
     }
   </style>
 </head>
@@ -189,17 +200,21 @@
   <div id="particles-js">
   </div>
 
-  <dialog id="team-intro" style="max-width: 500px; overflow: hidden;">
+  <dialog id="team-intro">
     <form method="dialog"
       style="display: flex; justify-content: space-between; margin-bottom: 0.5em; font-family: 'Aldrich', sans-serif;">
       <h3 id="team-intro-title" style="text-shadow: none;">Team name</h3>
       <button onclick="closeTeamIntroduction()" class="btn btn-link">X</button>
     </form>
     <div class="modal-background"></div>
-    <div class="finalist-logo" style="cursor: default;">
-      <img src="#" alt="team logo">
+    <div class="team-intro-body">
+      <div>
+        <div class="finalist-logo" style="cursor: default; min-width: 300px; max-width: 300px; margin: 0 auto;">
+          <img src="#" alt="team logo">
+        </div>
+      </div>
+      <p id="team-intro-description" style="margin: 1em; overflow: scroll; min-width: 200px;">Team introduction</p>
     </div>
-    <p id="team-intro-description" style="margin: 1em; height: 10em; overflow: scroll;">Team introduction</p>
   </dialog>
 
   <div id="home-masthead">
@@ -248,7 +263,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="col-lg-12 col-xs-12" style="padding-bottom: 3rem;">
       <h2>Finalists</h2>
 
       <div style="display: block;">
