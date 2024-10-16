@@ -37,11 +37,15 @@
       }
     }
 
+    .finalist-logo-container h2 {
+      font-size: 3rem;
+    }
+
     .finalist-logo {
       width: 100%;
       height: auto;
       aspect-ratio: 1 / 1;
-      background-color: white;
+      background-color: #eee;
       border-radius: 1em;
       cursor: pointer;
       position: relative;
@@ -321,7 +325,8 @@
             <h3 class="finalist-logo-name">Defunqt</h3>
           </div>
           <div class="finalist-logo">
-            <img onclick="openTeamIntroduction('thehackerscrew')" src="/static/img/team-logos/thc.png">
+            <img onclick="openTeamIntroduction('thehackerscrew')" src="/static/img/team-logos/thc.png"
+              style="background-color: #222;">
             <div class="finalist-logo-mask"></div>
             <h3 class="finalist-logo-name">thehackerscrew</h3>
           </div>
@@ -502,7 +507,16 @@ Water Paddler is founded by a member from Tea Deliverers and a member from shell
       // see: https://stackoverflow.com/questions/9538868/prevent-body-from-scrolling-when-a-modal-is-opened
       document.querySelector("body").classList.add("no-scroll")
       document.querySelector("#team-intro-title").innerHTML = teamName
-      document.querySelector("#team-intro img").src = url
+
+
+      const img = document.querySelector("#team-intro img")
+      img.src = url
+      if (teamName == "thehackerscrew") {
+        img.style = "background-color: #222"
+      } else {
+        img.style = ""
+      }
+
       document.querySelector("#team-intro-description").innerHTML = description
       document.querySelector("#team-intro").showModal()
     }
